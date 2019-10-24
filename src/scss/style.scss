@@ -1,0 +1,219 @@
+// compileCompressed: ../../dist/css/$1.min.css
+@import "variables";
+@import "mixins";
+
+html,
+body,
+main,
+header,
+section,
+footer,
+h1,
+h2,
+p,
+a {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  color: $neutral;
+}
+
+h2, h1 {
+  color: $neutral-dark;
+}
+
+body {
+  position: relative;
+  height: auto;
+  min-height: calc(100vh - 3vh);
+  padding-top: 3vh;
+  font-family: $font-family;
+  font-size: $body-copy;
+  background: $background;
+}
+
+main {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 5vh;
+
+  @include media($small) {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  @include media($large) {
+    flex-direction: row;
+    width: 90%;
+  }
+
+  @include media($huge) {
+    width: 65%;
+  }
+}
+
+.main-header {
+  width: 95%;
+  margin: 5vh auto 8vh auto;
+  text-align: center;
+
+  &__description {
+    margin: 5% auto;
+
+    @include media($medium) {
+      width: 90%;
+    }
+
+    @include media($extra-large) {
+      width: 80%;
+    }
+  }
+
+  @include media($small) {
+    width: 85%;
+  }
+
+  @include media($medium) {
+    width: 70%;
+  }
+
+  @include media($large) {
+    width: 50%;
+  }
+
+  @include media($extra-large) {
+    width: 42%;
+  }
+}
+
+.heading {
+  font-weight: 600;
+  font-size: $heading-big-mobile;
+  line-height: $heading-small;
+
+  &__light {
+    display: block;
+    font-weight: 200;
+  }
+
+  @include media($medium) {
+    font-size: $heading-big;
+  }
+}
+
+.card-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @include media($medium) {
+    flex-direction: row;
+    justify-content: center;
+    width: 90%;
+  }
+
+  @include media($large-tablet) {
+    flex-direction: row;
+    justify-content: center;
+    width: 70%;
+  }
+
+  @include media($large) {
+    width: 33%;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.card {
+  position: relative;
+  align-self: center;
+  width: 70%;
+  height: 200px;
+  padding: 5%;
+  border-radius: 6px 6px 0 0;
+  margin-bottom: 25px;
+  background: #fff;
+  box-shadow: 0 19px 25px rgba(0,0,0,0.25), 0 17px 12px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+
+  @include media($small) {
+    width: 80%;
+  }
+
+  @include media($medium) {
+    width: calc(50% - 20px);
+    margin: 10px;
+  }
+
+  @include media($large) {
+    width: calc(100% - 60px);
+    min-height: 200px;
+    margin: 10px 30px;
+  }
+
+  @include media($extra-large) {
+    width: calc(100% - 60px);
+    margin: 15px 30px;
+  }
+
+  &:hover {
+    transform: scale(1.1, 1.1);
+    box-shadow: 0 19px 45px rgba(0,0,0,0.25), 0 17px 30px rgba(0,0,0,0.2);
+  }
+
+  &__image {
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+    width: 65px;
+    padding: 3%;
+  }
+
+  &__header {
+    padding-bottom: 15px;
+  }
+
+  &--first {
+    border-top: 6px solid $primary-color-first;
+  }
+
+  &--second {
+    border-top: 6px solid $primary-color-second;
+  }
+
+  &--third {
+    border-top: 6px solid $primary-color-third;
+  }
+
+  &--fourth {
+    border-top: 6px solid $primary-color-fourth;
+  }
+}
+
+footer {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 100%;
+  text-align: center;
+
+  @include media($medium) {
+    text-align: right;
+  }
+}
+
+.attribution {
+  font-size: 11px;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}

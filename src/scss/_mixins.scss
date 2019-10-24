@@ -1,0 +1,20 @@
+/* Mixin for media queries. Has to have content to work. Usage:
+
+  el {
+    @include media(1200px) {
+      background-color: red;
+    }
+  }
+  Result:
+
+  @media (min-width: 1200px) {
+  el {
+    background-color: red;
+  }
+*/
+
+@mixin media($breakpoint) {
+  @media (min-width: #{$breakpoint}) {
+    @content;
+  }
+}
