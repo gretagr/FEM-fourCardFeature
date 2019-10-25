@@ -2,6 +2,10 @@
 @import "variables";
 @import "mixins";
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body,
 main,
@@ -27,8 +31,9 @@ h2, h1 {
 body {
   position: relative;
   height: auto;
-  min-height: calc(100vh - 3vh);
-  padding-top: 3vh;
+  min-height: calc(100vh - 60px);
+  padding-top: 30px;
+  padding-bottom: 30px;
   font-family: $font-family;
   font-size: $body-copy;
   background: $background;
@@ -40,18 +45,28 @@ main {
   align-items: flex-start;
   flex-direction: column;
   width: 100%;
+  height: 100%;
   margin: 0 auto;
-  padding-bottom: 5vh;
+
+
 
   @include media($small) {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 80%;
+  }
+
+  @include media($medium) {
+    width: 90%;
   }
 
   @include media($large) {
     flex-direction: row;
-    width: 90%;
+  }
+
+  @include media($extra-large) {
+    width: 80%;
   }
 
   @include media($huge) {
@@ -61,13 +76,14 @@ main {
 
 .main-header {
   width: 95%;
-  margin: 5vh auto 8vh auto;
+  margin: 6vh auto 6vh auto;
   text-align: center;
 
   &__description {
-    margin: 5% auto;
+    margin: 1vh auto 4vh auto;
 
     @include media($medium) {
+      margin: 4vh auto 4vh auto;
       width: 90%;
     }
 
@@ -111,57 +127,39 @@ main {
 .card-group {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: 15px;
 
   @include media($medium) {
     flex-direction: row;
-    justify-content: center;
-    width: 90%;
-  }
-
-  @include media($large-tablet) {
-    flex-direction: row;
-    justify-content: center;
-    width: 70%;
   }
 
   @include media($large) {
-    width: 33%;
     flex-direction: column;
-    justify-content: center;
   }
 }
 
 .card {
   position: relative;
   align-self: center;
-  width: 70%;
-  height: 200px;
+  width: 100%;
+  min-height: 210px;
+  min-width: 240px;
   padding: 5%;
   border-radius: 6px 6px 0 0;
-  margin-bottom: 25px;
   background: #fff;
   box-shadow: 0 19px 25px rgba(0,0,0,0.25), 0 17px 12px rgba(0,0,0,0.1);
   transition: all 0.2s ease;
-
-  @include media($small) {
-    width: 80%;
-  }
+  animation: scale 1s ease-in-out;
 
   @include media($medium) {
-    width: calc(50% - 20px);
-    margin: 10px;
+    min-height: 250px;
   }
 
   @include media($large) {
-    width: calc(100% - 60px);
-    min-height: 200px;
-    margin: 10px 30px;
-  }
-
-  @include media($extra-large) {
-    width: calc(100% - 60px);
-    margin: 15px 30px;
+    min-height: 220px;
   }
 
   &:hover {
@@ -173,7 +171,9 @@ main {
     position: absolute;
     bottom: 3%;
     right: 3%;
+    box-sizing: content-box;
     width: 65px;
+    min-width: 65px;
     padding: 3%;
   }
 
@@ -187,6 +187,18 @@ main {
 
   &--second {
     border-top: 6px solid $primary-color-second;
+    margin-bottom: 30px;
+
+    @include media($medium) {
+      margin-bottom: 0;
+      margin-right: 30px;
+    }
+
+    @include media($large) {
+      margin-bottom: 30px;
+      margin-right: 0;
+
+    }
   }
 
   &--third {
@@ -200,8 +212,8 @@ main {
 
 footer {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  bottom: 10px;
+  right: 10px;
   width: 100%;
   text-align: center;
 
@@ -216,4 +228,19 @@ footer {
 
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+
+@keyframes scale {
+  0% {
+    transform: scale(.7);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
