@@ -1,0 +1,71 @@
+@import "variables";
+@import "mixins";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+main,
+header,
+section,
+footer,
+h1,
+h2,
+p,
+a {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  color: $neutral;
+}
+
+h2, h1 {
+  color: $neutral-dark;
+}
+
+body {
+  position: relative;
+  height: auto;
+  min-height: calc(100vh - 6vh);
+  font-family: $font-family;
+  font-size: $body-copy;
+  background: $background;
+}
+
+main {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding-bottom: 30px;
+
+  @include media($small) {
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  @include media($medium) {
+    width: 90%;
+  }
+
+  @include media($large) {
+    flex-direction: row;
+  }
+
+  @include media($extra-large) {
+    width: 80%;
+  }
+
+  @include media($huge) {
+    width: 65%;
+  }
+}

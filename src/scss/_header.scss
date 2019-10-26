@@ -1,0 +1,54 @@
+@import "variables";
+@import "mixins";
+
+.main-header {
+  width: 95%;
+  margin: 6vh auto 6vh auto;
+  padding-top: 60px;
+  text-align: center;
+
+  &__description {
+    margin: 1vh auto 4vh auto;
+
+    @include media($medium) {
+      width: 90%;
+      margin: 4vh auto 4vh auto;
+    }
+
+    @include media($extra-large) {
+      width: 80%;
+    }
+  }
+
+  @include media($small) {
+    width: 85%;
+    padding-top: 0;
+  }
+
+  @include media($medium) {
+    width: 70%;
+  }
+
+  @include media($large) {
+    width: 50%;
+  }
+
+  @include media($extra-large) {
+    width: 42%;
+  }
+}
+
+.heading {
+  font-weight: 600;
+  font-size: $heading-big-mobile;
+  line-height: $heading-small;
+
+  &__light {
+    display: block;
+    font-weight: 200;
+  }
+
+  @include media($medium) {
+    font-size: $heading-big;
+  }
+}

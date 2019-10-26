@@ -1,0 +1,105 @@
+@import "variables";
+@import "mixins";
+
+.card-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: 15px;
+
+  @include media($medium) {
+    flex-direction: row;
+  }
+
+  @include media($large) {
+    flex-direction: column;
+  }
+}
+
+.card {
+  position: relative;
+  align-self: center;
+  width: 100%;
+  min-height: 210px;
+  min-width: 240px;
+  padding: 5%;
+  border-radius: 6px 6px 0 0;
+  background: #fff;
+  box-shadow: 0 10px 15px rgba(76, 78, 97, 0.25);
+  transition: all 0.2s ease;
+  animation: scale 1s ease-in-out;
+  opacity: 1;
+  cursor: pointer;
+
+  @include media($medium) {
+    min-height: 250px;
+  }
+
+  @include media($large) {
+    min-height: 220px;
+  }
+
+  &:hover {
+    transform: scale(1.1, 1.1);
+    box-shadow: 0 15px 20px rgba(76, 78, 97, 0.35);
+  }
+
+  &__image {
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+    box-sizing: content-box;
+    width: 65px;
+    min-width: 65px;
+    padding: 3%;
+  }
+
+  &__header {
+    padding-bottom: 15px;
+  }
+
+  &--first {
+    border-top: 6px solid $primary-color-first;
+
+    @include media($medium) {
+      width: calc(50% - 15px);
+    }
+
+    @include media($large) {
+      width: 100%;
+    }
+  }
+
+  &--second {
+    margin-bottom: 30px;
+    border-top: 6px solid $primary-color-second;
+
+    @include media($medium) {
+      margin-bottom: 0;
+      margin-right: 30px;
+    }
+
+    @include media($large) {
+      margin-bottom: 30px;
+      margin-right: 0;
+    }
+  }
+
+  &--third {
+    border-top: 6px solid $primary-color-third;
+  }
+
+  &--fourth {
+    border-top: 6px solid $primary-color-fourth;
+
+    @include media($medium) {
+      width: calc(50% - 15px);
+    }
+
+    @include media($large) {
+      width: 100%;
+    }
+  }
+}

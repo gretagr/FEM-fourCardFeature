@@ -1,0 +1,22 @@
+@import "_variables";
+@import "_mixins";
+
+footer {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  width: 100%;
+  text-align: center;
+
+  @include media($medium) {
+    text-align: right;
+  }
+}
+
+.attribution {
+  font-size: 11px;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
