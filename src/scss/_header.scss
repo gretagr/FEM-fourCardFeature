@@ -4,7 +4,6 @@
 .main-header {
   width: 95%;
   margin: 6vh auto 6vh auto;
-  padding-top: 60px;
   text-align: center;
 
   &__description {
@@ -22,10 +21,10 @@
 
   @include media($small) {
     width: 85%;
-    padding-top: 0;
   }
 
   @include media($medium) {
+    padding-top: 60px;
     width: 70%;
   }
 
